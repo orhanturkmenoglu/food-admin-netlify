@@ -7,7 +7,7 @@ const Orders = () => {
 
   const fetchOrders = async () => {
     try {
-      const response = await axios.get("http://localhost:8080/api/orders/all");
+      const response = await axios.get("http://foodies-railway-deploy.railway.internal/api/orders/all");
       setData(response.data);
     } catch (error) {
       console.error("Error fetching orders:", error);
@@ -25,7 +25,7 @@ const Orders = () => {
 
     try {
       const response = await axios.put(
-        `http://localhost:8080/api/orders/status/${orderId}`,
+        `http://foodies-railway-deploy.railway.internal/api/orders/status/${orderId}`,
         null,
         { params: { status: newStatus } }
       );

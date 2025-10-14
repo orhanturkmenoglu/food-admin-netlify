@@ -14,7 +14,7 @@ const ContactMessages = () => {
   // Tüm mesajları çek
   const fetchContactMessages = async () => {
     try {
-      const response = await axios.get("http://localhost:8080/api/contact/all");
+      const response = await axios.get("http://foodies-railway-deploy.railway.internal/api/contact/all");
       if (response.status === 200) {
         setData(response.data);
         setFilteredData(response.data);
@@ -28,7 +28,7 @@ const ContactMessages = () => {
   const handleDeleteContact = async (contactId) => {
     try {
       const response = await axios.delete(
-        `http://localhost:8080/api/contact/${contactId}`
+        `http://foodies-railway-deploy.railway.internal/api/contact/${contactId}`
       );
 
       if (response.status === 204) {
@@ -49,7 +49,7 @@ const ContactMessages = () => {
   const handleMarkAsRead = async (contactId) => {
     try {
       const response = await axios.patch(
-        `http://localhost:8080/api/contact/${contactId}/read`
+        `hhttp://foodies-railway-deploy.railway.internal/api/contact/${contactId}/read`
       );
 
       if (response.status === 200) {
