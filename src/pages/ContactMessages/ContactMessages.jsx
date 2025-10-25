@@ -14,7 +14,7 @@ const ContactMessages = () => {
   // Tüm mesajları çek
   const fetchContactMessages = async () => {
     try {
-      const response = await axios.get("https://foodies-railway-deploy-production.up.railway.app/api/contact/all");
+      const response = await axios.get("https://soothing-recreation-production.up.railway.app/api/contact/all");
       if (response.status === 200) {
         setData(response.data);
         setFilteredData(response.data);
@@ -28,7 +28,7 @@ const ContactMessages = () => {
   const handleDeleteContact = async (contactId) => {
     try {
       const response = await axios.delete(
-        `https://foodies-railway-deploy-production.up.railway.app/api/contact/${contactId}`
+        `https://soothing-recreation-production.up.railway.app/api/contact/${contactId}`
       );
 
       if (response.status === 204) {
@@ -49,7 +49,7 @@ const ContactMessages = () => {
   const handleMarkAsRead = async (contactId) => {
     try {
       const response = await axios.patch(
-        `https://foodies-railway-deploy-production.up.railway.app/api/contact/${contactId}/read`
+        `https://soothing-recreation-production.up.railway.app/api/contact/${contactId}/read`
       );
 
       if (response.status === 200) {
