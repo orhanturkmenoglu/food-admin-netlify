@@ -102,12 +102,6 @@ const ListFood = () => {
                       >
                         <i className="bi bi-trash-fill"></i> Delete
                       </button>
-                       <button
-                        className="delete-btn"
-                        onClick={() => removeFood(item.id)}
-                      >
-                        <i className="bi bi-trash-fill"></i> Update
-                      </button>
                     </td>
                   </tr>
                 ))
