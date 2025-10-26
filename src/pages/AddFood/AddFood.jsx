@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { assets } from "../../assets/assets";
 import { addFood } from "../../services/foodService";
 import { toast } from "react-toastify";
@@ -11,6 +11,8 @@ const AddFood = () => {
     price: "",
     category: "Biryani",
   });
+
+  const fileInputRef = useRef(null);
 
   const onChangeHandler = (event) => {
     const { name, value } = event.target;
@@ -34,6 +36,10 @@ const AddFood = () => {
       toast.success("Food added successfully");
       setData({ name: "", description: "", category: "Biryani", price: "" });
       setImage(null);
+
+      if (fileInputRef.current) {
+        fileInputRef.current.value = "";
+      }
     } catch (error) {
       toast.error("Error adding food. Connection failed.");
       console.log(error);
@@ -58,7 +64,10 @@ const AddFood = () => {
             <form className="card-body p-4" onSubmit={onSubmitHandler}>
               {/* Image Upload */}
               <div className="mb-4 text-center">
-                <label htmlFor="image" className="form-label fw-semibold d-block">
+                <label
+                  htmlFor="image"
+                  className="form-label fw-semibold d-block"
+                >
                   <img
                     src={image ? URL.createObjectURL(image) : assets.upload}
                     alt="file-upload"
@@ -73,6 +82,7 @@ const AddFood = () => {
                   className="form-control rounded-3"
                   id="image"
                   name="image"
+                  ref={fileInputRef}
                   required
                   onChange={(e) => setImage(e.target.files[0])}
                 />
@@ -166,10 +176,12 @@ const AddFood = () => {
                     transition: "0.3s",
                   }}
                   onMouseOver={(e) =>
-                    (e.currentTarget.style.background = "linear-gradient(90deg, #34c759, #8de7a0)")
+                    (e.currentTarget.style.background =
+                      "linear-gradient(90deg, #34c759, #8de7a0)")
                   }
                   onMouseOut={(e) =>
-                    (e.currentTarget.style.background = "linear-gradient(90deg, #28a745, #71dd8a)")
+                    (e.currentTarget.style.background =
+                      "linear-gradient(90deg, #28a745, #71dd8a)")
                   }
                 >
                   ➕ Save Food
