@@ -3,10 +3,14 @@ import { Link } from "react-router-dom";
 import { assets } from "../../assets/assets";
 
 const Sidebar = ({ sidebarVisible }) => {
+  console.log(sidebarVisible);
   return (
     <div
-      className={`border-end bg-white ${sidebarVisible ? "" : "d-none"}`}
       id="sidebar-wrapper"
+      style={{
+        marginLeft: sidebarVisible ? "0" : "-15rem",
+        transition: "margin 0.25s ease-out",
+      }}
     >
       <div className="sidebar-heading border-bottom bg-light">
         <img src={assets.logo} alt="" height={46} width={46} />

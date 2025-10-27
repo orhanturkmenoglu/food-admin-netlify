@@ -14,8 +14,11 @@ function App() {
   const [sidebarVisible, setSidebarVisible] = useState(true);
 
   const toggleSidebarVisible = () => {
-    setSidebarVisible((prev) => !prev);
-  };
+  setSidebarVisible(prev => {
+    console.log("Sidebar visible?", !prev);
+    return !prev;
+  });
+};
 
   return (
     <div>
