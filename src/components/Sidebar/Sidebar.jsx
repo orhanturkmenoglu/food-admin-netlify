@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { assets } from "../../assets/assets";
 
 const Sidebar = ({ sidebarVisible }) => {
-  console.log(sidebarVisible);
   return (
     <div
       id="sidebar-wrapper"
